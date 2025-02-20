@@ -1,0 +1,26 @@
+$medieval-font: 'Cinzel', serif; // You can use a Google Font for a medieval look
+
+body {
+    background-color: #f5f5dc; // Light parchment color
+}
+
+.title {
+    font-family: $medieval-font;
+    color: #8B4513; // SaddleBrown color
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    font-family: $medieval-font;
+    background-color: #6B8E23; // OliveDrab color
+    color: white;
+    border: 2px solid #8B4513; // SaddleBrown border
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+        background-color: #556B2F; // DarkOliveGreen on hover
+        transform: scale(1.05);
+    }
+}

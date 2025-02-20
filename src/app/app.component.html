@@ -1,7 +1,11 @@
+<h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1>
+
 <div>
-  <button (click)="setView('main')">Main</button>
-  <button (click)="setView('combat')">Combat</button>
-  <button (click)="setView('character')">Character</button>
+  <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" (click)="setView('main')">Main</button>
+  <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" (click)="setView('combat')">Combat</button>
+  <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" (click)="setView('character')">Character</button>
   <div>
       <ng-container *ngIf="currentView === 'main'">
         <app-main></app-main>
