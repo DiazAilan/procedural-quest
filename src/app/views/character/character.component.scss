@@ -1,0 +1,33 @@
+.character-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  padding: 20px;
+}
+
+.equipment, .skills, .inventory {
+  border: 2px solid #8B4513;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 10px;
+  padding: 15px;
+  width: 80%;
+}
+
+.equipment {
+  flex: 1;
+}
+
+.skills {
+  flex: 1;
+}
+
+.inventory {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.equipment h2, .skills h2, .inventory h2 {
+  font-family: 'Garamond', serif;
+  color: #8B4513;
+}
