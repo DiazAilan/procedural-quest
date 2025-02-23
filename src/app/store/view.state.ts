@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-
-export class SetView {
-    static readonly type = '[View] Set';
-    constructor(public payload: string) {}
-}
+import { SetView } from './view.actions';
 
 export interface ViewStateModel {
     currentView: string;
@@ -13,7 +9,7 @@ export interface ViewStateModel {
 @State<ViewStateModel>({
     name: 'view',
     defaults: {
-        currentView: 'main' // Default view
+        currentView: 'main'
     }
 })
 @Injectable()

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { SetView } from './store/view.state';
 import { Store } from '@ngxs/store';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './views/main/main.component';
 import { CombatComponent } from './views/combat/combat.component';
 import { CharacterComponent } from './views/character/character.component';
+import { SetView } from './store/view.actions';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +18,13 @@ export class AppComponent {
   currentView: string = 'main';
 
   constructor(private store: Store) {
-        this.store.select(state => state.view.currentView).subscribe(view => {
-            this.currentView = view;
-        });
-    }
+      this.store.select(state => state.view.currentView).subscribe(view => {
+          this.currentView = view;
+      });
+  }
 
-    setView(view: string) {
-        this.store.dispatch(new SetView(view));
-    }
+  setView(view: string): void {
+      this.store.dispatch(new SetView(view));
+  }
+
 }
