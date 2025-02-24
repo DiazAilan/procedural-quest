@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CharacterCreation, CreateCharacter } from '../../store/player.actions';
+import { Store } from '@ngxs/store';
+import { SetView } from '../../store/view.actions';
 
 @Component({
   selector: 'app-character-creation',
@@ -20,7 +23,10 @@ export class CharacterCreationComponent implements OnInit {
     'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store
+  ) {
     this.characterForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       race: ['', Validators.required],
@@ -41,8 +47,15 @@ export class CharacterCreationComponent implements OnInit {
 
   onSubmit(): void {
     if (this.characterForm.valid) {
-      console.log('Character created:', this.characterForm.value);
-      // Here you can add your logic to save the character
+      const character: CharacterCreation = {
+        name: this.characterForm.get('name')?.value,
+        race: this.characterForm.get('race')?.value,
+        class: this.characterForm.get('class')?.value,
+        constellation: this.characterForm.get('constellation')?.value
+      };
+      
+      this.store.dispatch(new CreateCharacter(character));
+      this.store.dispatch(new SetView('combat'));
     }
   }
 }

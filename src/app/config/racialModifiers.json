@@ -1,0 +1,23 @@
+{
+  "Human":{
+    "intelligence": 1,
+    "dexterity": 0,
+    "strength": 0,
+    "health": 1,
+    "energy": 1
+  },
+  "Orc": {
+    "strength": 1,
+    "health": 1.1,
+    "energy": 0.9,
+    "intelligence": 0,
+    "dexterity": 0
+  },
+  "Elf": {
+    "dexterity": 1,
+    "energy": 1.1,
+    "health": 0.9,
+    "intelligence": 0,
+    "strength": 0
+  }
+}
