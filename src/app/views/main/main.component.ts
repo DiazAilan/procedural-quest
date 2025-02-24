@@ -14,8 +14,7 @@ export class MainComponent {
   constructor(private store: Store) {}
 
   newGame(): void {
-    this.store.dispatch(new SetView('combat'));
-    this.store.dispatch(new ResumeGame());
+    this.store.dispatch(new SetView('character-creation'));
   }
 
 }

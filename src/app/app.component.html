@@ -1,11 +1,14 @@
 <div>
   <ng-container *ngIf="currentView === 'main'">
-    <app-main></app-main>
+    <app-main/>
   </ng-container>
   <ng-container *ngIf="currentView === 'combat'">
-    <app-combat></app-combat>
+    <app-combat/>
   </ng-container>
   <ng-container *ngIf="currentView === 'character'">
-    <app-character></app-character>
+    <app-character/>
+  </ng-container>
+  <ng-container *ngIf="currentView === 'character-creation'">
+    <app-character-creation/>
   </ng-container>
 </div>

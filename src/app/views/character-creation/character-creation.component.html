@@ -1,1 +1,81 @@
-<p>character-creation works!</p>
+<div class="character-creation-container medieval-theme">
+  <h1 class="medieval-title">Create Your Hero</h1>
+
+  <form [formGroup]="characterForm" class="character-form">
+    <!-- Character Name -->
+    <div class="form-group">
+      <label class="medieval-label" for="characterName">Hero's Name</label>
+      <input 
+        id="characterName"
+        type="text"
+        formControlName="name"
+        class="medieval-input"
+        placeholder="Enter thy name..."
+      >
+    </div>
+
+    <!-- Race Selection -->
+    <div class="form-group">
+      <label class="medieval-label">Choose Your Race</label>
+      <div class="race-buttons">
+        <button 
+          type="button"
+          *ngFor="let race of races"
+          [class.active]="characterForm.get('race')?.value === race"
+          (click)="selectRace(race)"
+          class="medieval-button race-button">
+          {{ race }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Class Selection -->
+    <div class="form-group">
+      <label class="medieval-label">Choose Your Class</label>
+      <div class="class-buttons">
+        <button 
+          type="button"
+          *ngFor="let class of classes"
+          [class.active]="characterForm.get('class')?.value === class"
+          (click)="selectClass(class)"
+          class="medieval-button class-button">
+          {{ class }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Constellation Selection -->
+    <div class="form-group">
+      <label class="medieval-label" for="constellation">Choose Your Star Sign</label>
+      <select 
+        id="constellation"
+        formControlName="constellation"
+        class="medieval-select">
+        <option value="">Select thy star sign...</option>
+        <option *ngFor="let sign of constellations" [value]="sign">
+          {{ sign }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Character Preview -->
+    <div class="character-preview">
+      <h2 class="medieval-subtitle">Character Preview</h2>
+      <div class="preview-content">
+        <p><span>Name:</span> {{ characterForm.get('name')?.value || 'Unnamed Hero' }}</p>
+        <p><span>Race:</span> {{ characterForm.get('race')?.value || 'Not Selected' }}</p>
+        <p><span>Class:</span> {{ characterForm.get('class')?.value || 'Not Selected' }}</p>
+        <p><span>Star Sign:</span> {{ characterForm.get('constellation')?.value || 'Not Selected' }}</p>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button 
+      type="submit"
+      [disabled]="!characterForm.valid"
+      class="medieval-button submit-button"
+      (click)="onSubmit()">
+      Begin thy Journey
+    </button>
+  </form>
+</div>
