@@ -3,10 +3,10 @@
   <div class="combat-interface">
 
     <div class="player-character">
-      <h2>Player Character</h2>
+      <h2>{{player?.name}}</h2>
       <div class="stats">
-        <p>HP: <span id="player-hp">100</span></p>
-        <p>Energy: <span id="player-energy">50</span></p>
+        <p>HP: <span id="player-hp">{{player?.health}}</span></p>
+        <p>Energy: <span id="player-energy">{{player?.energy}}</span></p>
       </div>
     </div>
     

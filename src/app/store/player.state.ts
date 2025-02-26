@@ -35,15 +35,6 @@ export interface PlayerStateModel {
 })
 @Injectable()
 export class PlayerState {
-  /* @Action(ResumeGame)
-  setView(ctx: StateContext<PlayerStateModel>) {
-      const state = ctx.getState();
-      ctx.setState({
-          ...state,
-          active: true
-      });
-  } */
-
   @Selector()
   static getState(state: PlayerStateModel) {
       return state;
