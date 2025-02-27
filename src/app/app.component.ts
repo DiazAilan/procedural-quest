@@ -18,9 +18,9 @@ export class AppComponent {
   currentView: string = 'main';
 
   constructor(private store: Store) {
-      this.store.select(state => state.view.currentView).subscribe(view => {
-          this.currentView = view;
-      });
+    this.store.select(state => state.view.currentView).subscribe(view => {
+        this.currentView = view;
+    });
   }
 
   setView(view: string): void {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { CreateCharacter, Constellation } from './player.actions';
-import racialModifiers from '../config/racialModifiers.json';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Attack } from './combat.actions';
+import { Constellation } from './player.actions';
 
 export interface CombatStateModel {
   player: {
@@ -57,17 +57,17 @@ export class CombatState {
       return state.enemies;
   }
 
-@Action(AttackAction)
-attack(ctx: StateContext<CombatStateModel>, action: AttackAction) {
+  @Action(Attack)
+  attack(ctx: StateContext<CombatStateModel>, action: Attack) {
     const state = ctx.getState();
     const source = state.player;
-    const target = state.enemies.find(enemy => enemy.name === action.targetName);
+    const target = state.enemies.find(enemy => enemy.name === action.target);
     if (target) {
         const damage = Math.max(0, source.strength - target.dexterity);
         ctx.setState({
             ...state,
-            enemies: state.enemies.map(enemy => enemy.name === action.targetName ? { ...enemy, health: enemy.health - damage } : enemy)
+            enemies: state.enemies.map(enemy => enemy.name === action.target ? { ...enemy, health: enemy.health - damage } : enemy)
         });
     }
-}
+  }
 }

@@ -12,6 +12,5 @@ export interface AttackAction {
 
 export class Attack {
   static readonly type = '[Combat] Attack';
-
-  constructor(public payload: AttackAction) {}
+  constructor(public target: string) {}
 }

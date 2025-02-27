@@ -16,11 +16,11 @@ export interface GameStateModel {
 export class ViewState {
   @Action(ResumeGame)
   setView(ctx: StateContext<GameStateModel>) {
-      const state = ctx.getState();
-      ctx.setState({
-          ...state,
-          active: true
-      });
+    const state = ctx.getState();
+    ctx.setState({
+        ...state,
+        active: true
+    });
   }
 
   @Selector()
