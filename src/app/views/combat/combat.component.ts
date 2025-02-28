@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { PlayerStateModel } from '../../store/player.state';
+import { PlayerStateModel } from '../../store/player/player.state';
 
 @Component({
   selector: 'app-combat',

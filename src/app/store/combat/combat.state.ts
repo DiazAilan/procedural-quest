@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Attack } from './combat.actions';
-import { Constellation } from './player.actions';
+import { Constellation } from '../player/player.actions';
 
 export interface CombatStateModel {
   player: {
