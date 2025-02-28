@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { CharacterCreation, CreateCharacter, Constellation } from './player.actions';
-import racialModifiers from '../config/racialModifiers.json';
+import racialModifiers from '../../config/racialModifiers.json';
 
 export interface PlayerStateModel {
   name: string;

@@ -3,8 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { provideStore } from '@ngxs/store';
 import { routes } from './app.routes';
-import { ViewState } from './store/view.state';
-import { PlayerState } from './store/player.state';
+import { ViewState } from './store/view/view.state';
+import { PlayerState } from './store/player/player.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [

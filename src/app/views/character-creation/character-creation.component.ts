@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CharacterCreation, CreateCharacter } from '../../store/player.actions';
+import { CharacterCreation, CreateCharacter } from '../../store/player/player.actions';
 import { Store } from '@ngxs/store';
-import { SetView } from '../../store/view.actions';
+import { SetView } from '../../store/view/view.actions';
 
 @Component({
   selector: 'app-character-creation',
