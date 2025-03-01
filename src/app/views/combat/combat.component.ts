@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { PlayerStateModel } from '../../store/player/player.state';
+import { SaveCharacter } from '../../store/player/player.actions';
 
 @Component({
   selector: 'app-combat',
@@ -10,12 +11,16 @@ import { PlayerStateModel } from '../../store/player/player.state';
 })
 export class CombatComponent {
 
-  player?: PlayerStateModel;
+  player!: PlayerStateModel;
 
   constructor(private store: Store) {
     this.store.select(state => state.player).subscribe(player => {
         this.player = player;
     });
+  }
+
+  saveGame(): void {
+    this.store.dispatch(new SaveCharacter(this.player));
   }
 
 }
