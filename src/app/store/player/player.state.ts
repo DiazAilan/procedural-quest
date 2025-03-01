@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { CharacterCreation, CreateCharacter, Constellation } from './player.actions';
+import { CharacterCreation, CreateCharacter, Constellation, LoadCharacter, SaveCharacter } from './player.actions';
 import racialModifiers from '../../config/racialModifiers.json';
+import { EncryptionService } from '../../services/encryption.service';
 
 export interface PlayerStateModel {
   name: string;
@@ -35,6 +36,9 @@ export interface PlayerStateModel {
 })
 @Injectable()
 export class PlayerState {
+
+  constructor(private encryption: EncryptionService) {}
+
   @Selector()
   static getState(state: PlayerStateModel) {
       return state;
@@ -42,6 +46,20 @@ export class PlayerState {
 
   @Action(CreateCharacter)
   createCharacter(ctx: StateContext<PlayerStateModel>, { character }: CreateCharacter) {
+    ctx.setState({
+      ...ctx.getState(),
+      ...this.setPlayerFromCharacterCreation(character)
+    });
+  }
+
+  @Action(SaveCharacter)
+  saveCharacter(ctx: StateContext<PlayerStateModel>, { character }: SaveCharacter) {
+    const encryptedCharacter = this.encryption.encrypt(character);
+    console.log(encryptedCharacter);
+  }
+
+  @Action(LoadCharacter)
+  loadCharacter(ctx: StateContext<PlayerStateModel>, { character }: LoadCharacter) {
     ctx.setState({
       ...ctx.getState(),
       ...this.setPlayerFromCharacterCreation(character)

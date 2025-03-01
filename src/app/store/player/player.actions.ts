@@ -1,3 +1,5 @@
+import { PlayerStateModel } from "./player.state";
+
 export enum Constellation {
   Aries = 'Aries',
   Taurus = 'Taurus',
@@ -26,4 +28,16 @@ export class CreateCharacter {
   static readonly type = '[Player] Create Character';
 
   constructor(public character: CharacterCreation) {}
+}
+
+export class LoadCharacter {
+  static readonly type = '[Player] Load Character';
+
+  constructor(public character: PlayerStateModel) {}
+}
+
+export class SaveCharacter {
+  static readonly type = '[Player] Save Character';
+
+  constructor(public character: PlayerStateModel) {}
 }
