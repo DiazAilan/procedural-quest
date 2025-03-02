@@ -1,0 +1,74 @@
+.load-character-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.medieval-title {
+  color: #4a2810;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-container {
+  background: url('/assets/parchment-texture.png') #f4e4bc;
+  border: 2px solid #8b4513;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.medieval-label {
+  display: block;
+  font-family: 'MedievalSharp', cursive;
+  color: #4a2810;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.medieval-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem;
+  border: 2px solid #8b4513;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  font-family: 'MedievalSharp', cursive;
+  text-align: center;
+  color: #4a2810;
+  
+  &::placeholder {
+    color: #8b4513;
+    opacity: 0.7;
+  }
+}
+
+.medieval-button {
+  padding: 1rem 2rem;
+  background: #8b4513;
+  color: #f4e4bc;
+  border: 2px solid #4a2810;
+  border-radius: 4px;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #4a2810;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}

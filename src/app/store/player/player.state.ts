@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { State, Action, StateContext, Selector, Store } from '@ngxs/store';
 import { CharacterCreation, CreateCharacter, Constellation, LoadCharacter, SaveCharacter } from './player.actions';
 import racialModifiers from '../../config/racialModifiers.json';
 import { EncryptionService } from '../../services/encryption.service';
+import { SetView } from '../view/view.actions';
 
 export interface PlayerStateModel {
   name: string;
@@ -64,6 +65,7 @@ export class PlayerState {
       ...ctx.getState(),
       ...this.setPlayerFromCharacterCreation(character)
     });
+    ctx.dispatch(new SetView('combat'));
   }
 
   private setPlayerFromCharacterCreation(character: CharacterCreation): PlayerStateModel {

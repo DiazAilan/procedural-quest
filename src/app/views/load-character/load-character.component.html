@@ -1,0 +1,23 @@
+<div class="load-character-container medieval-theme">
+  <h1 class="medieval-title">Load thy Character</h1>
+  
+  <div class="scroll-container">
+    <div class="form-group">
+      <label class="medieval-label" for="saveCode">Enter thy Save Code</label>
+      <input 
+        id="saveCode"
+        type="text"
+        [(ngModel)]="saveCode"
+        class="medieval-input"
+        placeholder="Enter thy sacred code here..."
+      >
+    </div>
+
+    <button 
+      (click)="loadGame()"
+      [disabled]="!saveCode"
+      class="medieval-button">
+      Restore thy Journey
+    </button>
+  </div>
+</div>
