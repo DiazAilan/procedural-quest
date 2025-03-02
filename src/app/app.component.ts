@@ -6,9 +6,10 @@ import { CombatComponent } from './views/combat/combat.component';
 import { CharacterComponent } from './views/character/character.component';
 import { SetView } from './store/view/view.actions';
 import { CharacterCreationComponent } from './views/character-creation/character-creation.component';
+import { LoadCharacterComponent } from "./views/load-character/load-character.component";
 @Component({
   selector: 'app-root',
-  imports: [MainComponent, CombatComponent, CharacterComponent, CommonModule, CharacterCreationComponent],
+  imports: [MainComponent, CombatComponent, CharacterComponent, CommonModule, CharacterCreationComponent, LoadCharacterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -20,8 +20,7 @@ export class MainComponent {
   }
 
   loadGame(): void {
-    this.store.dispatch(new LoadCharacter(this.encryption.decrypt('U2FsdGVkX1/tNIZrLfMMZCe+OKibsK1L4bZvlXPMo55Rr9BvnRPEbQvqXdfOw5PuE06omeDxhzMMiL2wzzPAmR/NNQF4CWURHFDB13kvNZyU5Qy90vIiHRqguz8/PrTxuhd9bEX6nKnEYagugiGsHaq2wDrZjxx0fSHm4FTsrGZOOcqYv0A/uLiSzUyDyVofIK7PaId2QDuxvTkuhl/tvlhXi6OzR7LcriXURJne9Nwrr/dXW7Ro1oqAUofAwqWh')));
-    this.store.dispatch(new SetView('combat'));
+    this.store.dispatch(new SetView('load-character'));
   }
 
 }
