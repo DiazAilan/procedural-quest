@@ -15,7 +15,7 @@ export interface ViewStateModel {
 @Injectable()
 export class ViewState {
     @Action(SetView)
-    setView(ctx: StateContext<ViewStateModel>, action: SetView) {
+    setView(ctx: StateContext<ViewStateModel>, action: SetView): void {
         const state = ctx.getState();
         ctx.setState({
             ...state,
@@ -24,7 +24,7 @@ export class ViewState {
     }
 
     @Selector()
-    static getState(state: ViewStateModel) {
+    static getState(state: ViewStateModel): ViewStateModel {
         return state;
     }
 }

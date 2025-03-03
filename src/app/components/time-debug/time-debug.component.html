@@ -1,0 +1,23 @@
+<div class="debug-panel" [class.visible]="isVisible">
+  <div class="debug-header">
+    <h3>Time Debug</h3>
+    <button class="toggle-button" (click)="toggleVisibility()">
+      {{ isVisible ? 'Hide' : 'Show' }} Debug
+    </button>
+  </div>
+
+  <div class="debug-content" *ngIf="isVisible">
+    <div class="debug-item">
+      <span>Ticks:</span>
+      <span>{{ ticks$ | async }}</span>
+    </div>
+    <div class="debug-item">
+      <span>Time Running:</span>
+      <span>{{ (isRunning$ | async) ? 'Yes' : 'No' }}</span>
+    </div>
+    <div class="debug-item">
+      <span>Elapsed Time:</span>
+      <span>{{ (ticks$ | async) ? ((ticks$ | async)! / 20).toFixed(1) + 's' : '0s' }}</span>
+    </div>
+  </div>
+</div> 

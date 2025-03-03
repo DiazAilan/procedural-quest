@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { Attack } from './combat.actions';
-import { Constellation } from '../player/player.actions';
+import { Attack, CastSpell } from './combat.actions';
+import { Constellation } from './player.actions';
 
 export interface CombatStateModel {
   player: {
@@ -71,5 +71,17 @@ export class CombatState {
     }
   }
 
-  
+  @Action(CastSpell)
+  castSpell(ctx: StateContext<CombatStateModel>, action: CastSpell) {
+    const state = ctx.getState();
+    const source = state.player;
+    const target = state.enemies.find(enemy => enemy.name === action.target);
+    if (target) {
+        const damage = Math.max(0, source.intelligence - target.dexterity);
+        ctx.setState({
+            ...state,
+            enemies: state.enemies.map(enemy => enemy.name === action.target ? { ...enemy, health: enemy.health - damage } : enemy)
+        });
+    }
+  }
 }
