@@ -25,7 +25,7 @@ export class Tick {
   defaults: {
     ticks: 0,
     isRunning: false,
-    ticksPerSecond: 20 // 20 units per second
+    ticksPerSecond: 20
   }
 })
 @Injectable()
@@ -47,7 +47,7 @@ export class TimeState {
     const state = ctx.getState();
     if (!state.isRunning) {
       ctx.patchState({ isRunning: true });
-      // Calculate interval in milliseconds (1000ms / ticksPerSecond)
+
       const intervalMs = 1000 / state.ticksPerSecond;
       
       this.timeSubscription = interval(intervalMs).subscribe(() => {

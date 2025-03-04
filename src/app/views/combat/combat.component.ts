@@ -26,13 +26,11 @@ export class CombatComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
-    // Start the time system when combat begins
+  ngOnInit(): void {
     this.store.dispatch(new StartTime());
   }
 
-  ngOnDestroy() {
-    // Stop the time system when leaving combat
+  ngOnDestroy(): void {
     this.store.dispatch(new StopTime());
   }
 
@@ -40,26 +38,17 @@ export class CombatComponent implements OnInit, OnDestroy {
     this.store.dispatch(new SaveCharacter(this.player));
   }
 
-  attack() {
-    // Check if attack is off cooldown (2 second cooldown)
+  attack(): void {
     if (this.timeService.isCooldownComplete(this.lastAttackTick, 2)) {
-      // Perform attack
       this.lastAttackTick = this.store.selectSnapshot(TimeState.getTicks);
     }
   }
 
-  castSpell() {
-    // Create a 3-second cast timer
+  castSpell(): void {
     const castTimer$ = this.timeService.createTimer(3);
     castTimer$.subscribe({
-      next: remainingSeconds => {
-        // Update UI with remaining cast time
-        console.log(`Casting: ${remainingSeconds.toFixed(1)}s remaining`);
-      },
-      complete: () => {
-        // Cast is complete, execute spell
-        console.log('Spell cast complete!');
-      }
+      next: remainingSeconds => console.log(`Casting: ${remainingSeconds.toFixed(1)}s remaining`),
+      complete: () => console.log('Spell cast complete!')
     });
   }
 
