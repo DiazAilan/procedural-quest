@@ -1,0 +1,44 @@
+.player-character {
+  background-color: #fff8dc;
+  border: 1px solid #8b4513;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'MedievalSharp', cursive;
+  
+  h2 {
+    color: #4a2810;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      
+      .hp-value {
+        color: #8b0000;
+        font-weight: bold;
+      }
+      
+      .energy-value {
+        color: #00008b;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .attributes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 1rem;
+    text-align: center;
+    
+    p {
+      background: #f4e4bc;
+      padding: 5px;
+      border-radius: 4px;
+    }
+  }
+} 

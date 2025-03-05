@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Drunken Brawler",
+    "health": 120,
+    "energy": 60,
+    "strength": 14,
+    "dexterity": 8,
+    "intelligence": 4
+  },
+  {
+    "name": "Dark Necromancer",
+    "health": 80,
+    "energy": 120,
+    "strength": 4,
+    "dexterity": 6,
+    "intelligence": 16
+  },
+  {
+    "name": "Shadow Assassin",
+    "health": 90,
+    "energy": 100,
+    "strength": 8,
+    "dexterity": 16,
+    "intelligence": 10
+  }
+]

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { Attack } from './combat.actions';
+import { AddEnemies as AddRandomEnemies, Attack } from './combat.actions';
 import { Constellation } from '../player/player.actions';
+import { EnemiesService } from '../../services/enemies.service';
 
 export interface CombatStateModel {
   player: {
@@ -20,6 +21,7 @@ export interface CombatStateModel {
   enemies: {
     name: string;
     health: number;
+    energy: number;
     strength: number;
     dexterity: number;
     intelligence: number;
@@ -47,6 +49,9 @@ export interface CombatStateModel {
 })
 @Injectable()
 export class CombatState {
+
+  constructor(private enemiesService: EnemiesService) {}
+
   @Selector()
   static getPlayer(state: CombatStateModel) {
       return state.player;
@@ -71,5 +76,14 @@ export class CombatState {
     }
   }
 
+  @Action(AddRandomEnemies)
+  addEnemies(ctx: StateContext<CombatStateModel>, action: AddRandomEnemies) {
+    const state = ctx.getState();
+    const newEnemies = this.enemiesService.getMultipleRandomEnemies(action.count);
+    ctx.setState({
+        ...state,
+        enemies: [...state.enemies, ...newEnemies]
+    });
+  }
   
 }

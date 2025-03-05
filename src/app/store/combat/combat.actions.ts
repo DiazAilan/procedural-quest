@@ -14,3 +14,8 @@ export class Attack {
   static readonly type = '[Combat] Attack';
   constructor(public target: string) {}
 }
+
+export class AddEnemies {
+  static readonly type = '[Combat] Add Enemies';
+  constructor(public count: number) {}
+}

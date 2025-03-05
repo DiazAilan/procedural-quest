@@ -2,25 +2,22 @@
   <app-time-debug />
 
   <div class="combat-interface">
-
-    <div class="player-character">
-      <h2>{{player?.name}}</h2>
-      <div class="stats">
-        <p>HP: <span id="player-hp">{{player?.health}}</span></p>
-        <p>Energy: <span id="player-energy">{{player?.energy}}</span></p>
-      </div>
+    <div class="player-section">
+      <app-player-character [character]="player" />
     </div>
     
-    <div class="enemy-character">
-      <h2>Enemy Character</h2>
-      <div class="stats">
-        <p>HP: <span id="enemy-hp">100</span></p>
-        <p>Energy: <span id="enemy-energy">50</span></p>
-      </div>
+    <div class="enemies-section" *ngIf="enemies.length">
+      <app-enemy-character 
+        *ngFor="let enemy of enemies" 
+        [character]="enemy"
+        class="enemy"
+      />
     </div>
-
   </div>
 
-  <button (click)="saveGame()">Save Game</button>
-
+  <div class="combat-controls">
+    <button (click)="attack()" class="medieval-button">Attack</button>
+    <button (click)="castSpell()" class="medieval-button">Cast Spell</button>
+    <button (click)="saveGame()" class="medieval-button">Save Game</button>
+  </div>
 </div>
